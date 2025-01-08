@@ -1,0 +1,12 @@
+/home/daskans/Code/Games/rpg/build/CMakeFiles/rpg.dir
+/home/daskans/Code/Games/rpg/build/CMakeFiles/edit_cache.dir
+/home/daskans/Code/Games/rpg/build/CMakeFiles/rebuild_cache.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/SDL3-shared.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/SDL3_test.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/SDL_uclibc.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/uninstall.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/edit_cache.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3/CMakeFiles/rebuild_cache.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3_image/CMakeFiles/SDL3_image-shared.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3_image/CMakeFiles/edit_cache.dir
+/home/daskans/Code/Games/rpg/build/lib/SDL3_image/CMakeFiles/rebuild_cache.dir
