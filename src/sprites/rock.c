@@ -1,17 +1,11 @@
 #include "sprite.h"
 
-static const tileset_t rock = {
-    .start_x = 3,
-    .start_y = 0,
-    .type = ROCK,
-    .is_walkable = false
-};
 
 static SDL_Texture *rock_texture = NULL;
 
-static void init_rock_texture(char *tilepath, SDL_Renderer *renderer) {
+sprite_t *init_rock_texture(SDL_Renderer *renderer, map_t *map, sprite_t *sprite) {
     if (rock_texture == NULL) {
-        SDL_Surface *surface = IMG_Load(tilepath);
+        SDL_Surface *surface = IMG_Load(sprite->tileset->tilepath);
         if (surface == NULL) {
             fprintf(stderr, "Error loading image: %s\n", SDL_GetError());
             exit(EXIT_FAILURE);
@@ -24,8 +18,17 @@ static void init_rock_texture(char *tilepath, SDL_Renderer *renderer) {
         }
         SDL_DestroySurface(surface);
     }
+    sprite->texture = rock_texture;
+    if (sprite->map_y < map->height - 1 && map->sprites[sprite->map_y + 1][sprite->map_x]->tileset->type == GRASS) {
+        sprite->asset_x = (float)(sprite->tileset->start_x + 1) * 32;
+        sprite->asset_y = (float)(sprite->tileset->start_y + 3) * 32;
+    } else {
+        sprite->asset_x = (float)(sprite->tileset->start_x + 1) * 32;
+        sprite->asset_y = (float)(sprite->tileset->start_y + 2) * 32;
+    }
+    return sprite;
 }
-
+/*
 sprite_t *create_rock(char *tilepath, SDL_Renderer *renderer, float x, float y) {
     init_rock_texture(tilepath, renderer);
 
@@ -43,4 +46,9 @@ sprite_t *create_rock(char *tilepath, SDL_Renderer *renderer, float x, float y) 
     render_sprite(sprite, renderer);
 
     return sprite;
-} 
+} */
+static const tileset_t rock = {3, 0, ROCK, false, TERRAIN_TILE_FILE_PATH, init_rock_texture};
+
+tileset_t *create_rock() {
+    return &rock;
+}

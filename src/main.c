@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
     window_t *window = create_window();
-    map_t *map = create_map("./assets/maps/test");
+    map_t *map = create_map("./assets/maps/test", window->renderer);
     render_map(window->renderer, map);
 
     bool running = true;

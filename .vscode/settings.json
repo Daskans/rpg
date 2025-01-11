@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.s": "y86",
+        "*.h": "c",
+        "random": "c",
+        "functional": "c"
+    }
+}

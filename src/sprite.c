@@ -1,48 +1,30 @@
 #include "sprite.h"
 
-sprite_t *create_sprite(char *file, SDL_Renderer *renderer) {
-    sprite_t *sprite = malloc(sizeof(sprite_t));
-    if (!sprite) {
-        fprintf(stderr, "Failed to allocate memory for sprite\n");
-        exit(EXIT_FAILURE);
-    }
-    sprite->texture = NULL;
-    
-    SDL_Surface *surface = IMG_Load(file);
-    if (!surface) {
-        fprintf(stderr, "Failed to load image: %s\n", SDL_GetError());
-        exit(EXIT_FAILURE);
-    }
-    if (!sprite->texture) {
-        sprite->texture = SDL_CreateTextureFromSurface(renderer, surface);
-        if (!sprite->texture) {
-            fprintf(stderr, "Failed to create texture: %s\n", SDL_GetError());
-            exit(EXIT_FAILURE);
-        }
-    }
-    SDL_DestroySurface(surface);
+sprite_t *create_sprite(SDL_Renderer *renderer, sprite_t *sprite, map_t *map) {
+    sprite = sprite->tileset->choose_variant_function_t(renderer, map, sprite);
+    sprite->dst_rect = (SDL_FRect){(float)sprite->map_x * 32, (float)sprite->map_y * 32, 32.0f, 32.0f};
     return sprite;
 }
 
 void render_sprite(sprite_t *sprite, SDL_Renderer *renderer) {
-    SDL_FRect src_rect = {sprite->x*32.0f, sprite->y*32.0f, 32.0f, 32.0f};
+    SDL_FRect src_rect = {sprite->asset_x, sprite->asset_y, 32.0f, 32.0f};
     SDL_RenderTexture(renderer, sprite->texture, &src_rect, &sprite->dst_rect);
 }
 
-sprite_t *init_sprite(char *file, SDL_Renderer *renderer, float x, float y, tiletype_t type) {
-    sprite_t *sprite;
+tileset_t *init_tileset(tiletype_t type) {
+    tileset_t *tileset = malloc(sizeof(tileset_t));
     switch (type) {
         case GRASS:
-            sprite = create_grass(file, renderer, x, y);
+            tileset = create_grass();
             break;
         case ROCK:
-            sprite = create_rock(file, renderer, x, y);
+            tileset = create_rock();
             break;
         default:
             fprintf(stderr, "Invalid tile type\n");
             exit(EXIT_FAILURE);
     }
-    return sprite;
+    return tileset;
 }
 
 void delete_sprite(sprite_t *sprite) {

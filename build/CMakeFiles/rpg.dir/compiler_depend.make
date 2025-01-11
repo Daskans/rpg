@@ -406,6 +406,7 @@ CMakeFiles/rpg.dir/src/map.c.o: /home/daskans/Code/Games/rpg/src/map.c \
 
 CMakeFiles/rpg.dir/src/sprite.c.o: /home/daskans/Code/Games/rpg/src/sprite.c \
   /home/daskans/Code/Games/rpg/include/main.h \
+  /home/daskans/Code/Games/rpg/include/map.h \
   /home/daskans/Code/Games/rpg/include/sprite.h \
   /home/daskans/Code/Games/rpg/include/window.h \
   /home/daskans/Code/Games/rpg/lib/SDL3/include/SDL3/SDL.h \
@@ -539,6 +540,7 @@ CMakeFiles/rpg.dir/src/sprite.c.o: /home/daskans/Code/Games/rpg/src/sprite.c \
 
 CMakeFiles/rpg.dir/src/sprites/grass.c.o: /home/daskans/Code/Games/rpg/src/sprites/grass.c \
   /home/daskans/Code/Games/rpg/include/main.h \
+  /home/daskans/Code/Games/rpg/include/map.h \
   /home/daskans/Code/Games/rpg/include/sprite.h \
   /home/daskans/Code/Games/rpg/include/window.h \
   /home/daskans/Code/Games/rpg/lib/SDL3/include/SDL3/SDL.h \
@@ -672,6 +674,7 @@ CMakeFiles/rpg.dir/src/sprites/grass.c.o: /home/daskans/Code/Games/rpg/src/sprit
 
 CMakeFiles/rpg.dir/src/sprites/rock.c.o: /home/daskans/Code/Games/rpg/src/sprites/rock.c \
   /home/daskans/Code/Games/rpg/include/main.h \
+  /home/daskans/Code/Games/rpg/include/map.h \
   /home/daskans/Code/Games/rpg/include/sprite.h \
   /home/daskans/Code/Games/rpg/include/window.h \
   /home/daskans/Code/Games/rpg/lib/SDL3/include/SDL3/SDL.h \
